@@ -69,7 +69,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 
   .get('/', (req, res) => res.send({
     message : 'Wellcome to clashRoyale API',
-    links: ['https://clashroyaleapichto.herokuapp.com/api/v1/clashRoyale/clashs'
+    links: [
+      'https://clashroyaleapichto.herokuapp.com/api/v1/clashRoyale/clashs',
+      'https://clashroyaleapichto.herokuapp.com/user/signup',
+      'https://clashroyaleapichto.herokuapp.com/user/login',
   ]
   }))
 
