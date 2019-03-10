@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const morgan = require("morgan");
 
 var clashApiRoutes = require('./api/routes/clashApiRoutes');
+const userRoutes = require('./api/routes/user');
 
 const PORT = process.env.PORT || 5000
 const API_PATH = '/api/v1'
@@ -72,6 +73,7 @@ app.use(express.static(path.join(__dirname, 'public')))
   ]
   }))
 
+  .use("/user", userRoutes)
   .use(API_PATH + '/clashRoyale', clashApiRoutes)
 
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
