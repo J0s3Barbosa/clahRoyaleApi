@@ -66,6 +66,12 @@ app.use(function (req, res, next) {
 // express()
 app.use(express.static(path.join(__dirname, 'public')))
 
+  .get('/', (req, res) => res.send({
+    message : 'Wellcome to clashRoyale API',
+    links: ['https://clashroyaleapichto.herokuapp.com/api/v1/clashRoyale/clashs'
+  ]
+  }))
+
   .use(API_PATH + '/clashRoyale', clashApiRoutes)
 
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
