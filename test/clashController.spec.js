@@ -4,50 +4,9 @@ var expect = chai.expect;
 var urlBase = "http://localhost:5000";
 
 describe("Teste API clashroyale", function() {
-  it("Should retuen Auth successful", function(done) {
-    var user_login = urlBase + "/user/login";
-    var options = {
-      url: user_login,
-      form: { email: "appchto@gmail.com", password: "appchto@gmail" }
-    };
-    request.post(options, function(error, response, body) {
-      var _body = {};
-      try {
-        _body = JSON.parse(body);
-      } catch (e) {
-        _body = {};
-      }
-
-      expect(body).not.to.be.empty;
-      expect(_body.message).to.be.eq("Auth successful");
-      expect(_body.token).not.to.be.empty;
-      done();
-    });
-  });
-
-  it("Should success if credential is valid", function(done) {
-    var user_login = urlBase + "/user/login";
-    var options = {
-      url: user_login,
-      form: { email: "appchto@gmail.com", password: "appchto@gmail" }
-    };
-    request.post(options, function(error, response, body) {
-      var _body = {};
-      try {
-        _body = JSON.parse(body);
-      } catch (e) {
-        _body = {};
-      }
-
-      expect(response.body).not.to.be.empty;
-      expect(response.statusCode).to.be.eq(200);
-      done();
-    });
-  });
 
   it("endpoint clashs should login and retrieve data", function(done) {
     var url = urlBase + "/api/v1/clashroyale/clashsAllapi";
-    var token = "";
     var user_login = urlBase + "/user/login";
     var options = {
       url: user_login,
@@ -60,10 +19,11 @@ describe("Teste API clashroyale", function() {
       } catch (e) {
         _body = {};
       }
+
       expect(response.body).not.to.be.empty;
       expect(response.statusCode).to.be.eq(200);
+
       if (expect(_body.token).not.to.be.empty) {
-        token = _body.token;
         var optionstoken = {
           url: url,
           headers : { Authorization: "bearer " + _body.token }
@@ -81,7 +41,11 @@ describe("Teste API clashroyale", function() {
           done();
         });
       }
+
+      
     });
+
+
   });
 
   //   it("clashroyaleapi Should receive data",function(done){
