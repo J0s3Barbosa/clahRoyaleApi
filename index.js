@@ -6,13 +6,13 @@ var flash = require('connect-flash');
 const mongoose = require('mongoose');
 const morgan = require("morgan");
 
-var clashApiRoutes = require('./routes/clashApiRoutes');
+var clashApiRoutes = require('./api/routes/clashApiRoutes');
 
 const PORT = process.env.PORT || 5000
 const API_PATH = '/api/v1'
 
 // DB Config
-const db = require('./config/keys').mongoURI;
+const db = require('./api/config/keys').mongoURI;
 // Connect to MongoDB
 mongoose
   .connect(
@@ -77,9 +77,18 @@ app.use(express.static(path.join(__dirname, 'public')))
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 
-// handle 404 error
-app.use(function (req, res, next) {
-  let err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-})
+  app.use((req, res, next) => {
+    const error = new Error("Not found");
+    error.status = 404;
+    next(error);
+  });
+  
+  app.use((error, req, res, next) => {
+    res.status(error.status || 500);
+    res.json({
+      error: {
+        message: error.message
+      }
+    });
+  });
+  

@@ -76,8 +76,12 @@ exports.getClashRoyaleList = function(req, res) {
     if (err) {
       res.send(err);
     }
-
     res.json(clashroyale);
+    // res.status(200).json({
+    //   count: clashroyale.length,
+    //   clashroyale
+    // });
+
   }).sort(mysort);
 };
 
