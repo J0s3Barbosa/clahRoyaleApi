@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const User = require("../models/user");
+const {JWT_KEY, JWT_TIME_EXPIRES} = require("../config/config");
 
 exports.user_signup = (req, res, next) => {
   User.find({ email: req.body.email })
@@ -65,9 +66,9 @@ exports.user_login = (req, res, next) => {
               email: user[0].email,
               userId: user[0]._id
             },
-            process.env.JWT_KEY,
+            JWT_KEY,
             {
-              expiresIn: "1h"
+              expiresIn: JWT_TIME_EXPIRES
             }
           );
           return res.status(200).json({
