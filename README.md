@@ -42,8 +42,9 @@ http://localhost:5000/api-docs
 
 Links Prod
 "https://clashroyaleapichto.herokuapp.com/api/v1/clashRoyale/clashs",
-"https://clashroyaleapichto.herokuapp.com/user/signup",
-"https://clashroyaleapichto.herokuapp.com/user/login"
+"https://clashroyaleapichto.herokuapp.com/api/v1/user/signup",
+"https://clashroyaleapichto.herokuapp.com/api/v1/user/login"
+"https://clashroyaleapichto.herokuapp.com/api-docs"
 
 
 
