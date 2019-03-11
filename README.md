@@ -1,5 +1,8 @@
 ### ClahRoyaleApi
 
+* kills Used: javascript, mongoDB,  Express, Jwt, swagger, restful api, json
+
+### requirements
 * user access an endpoint register to create username and generate token for access
 *  manager receive an email to manage users permission
 * system will track users access
@@ -26,8 +29,16 @@ npm test
 * model
 
 Links UAT
+
+* access clash Royale endpoint 
 http://localhost:5000/api/v1/clashRoyale/clashs
-http://localhost:5000/user/login
+
+* endpoint to login   
+http://localhost:5000/api/v1/user/login
+
+* access swagger documentation
+http://localhost:5000/api-docs
+
 
 Links Prod
 "https://clashroyaleapichto.herokuapp.com/api/v1/clashRoyale/clashs",
@@ -37,12 +48,4 @@ Links Prod
 
 
 
-
-
-# Swagger:
-
-In order to run the example I have to introduce Swagger editor.http://editor.swagger.io/#/ 
-
-
-
-
+ 
