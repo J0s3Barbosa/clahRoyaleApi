@@ -21,14 +21,7 @@ npm run dev
 ### Run tests: 
 npm test   
 
-
-### App
-
-
-* controller
-* model
-
-Links UAT
+### Links UAT
 
 * access clash Royale endpoint 
 http://localhost:5000/api/v1/clashRoyale/clashs
@@ -40,7 +33,7 @@ http://localhost:5000/api/v1/user/login
 http://localhost:5000/api-docs
 
 
-Links Prod
+### Links Prod
 "https://clashroyaleapichto.herokuapp.com/api/v1/clashRoyale/clashs",
 "https://clashroyaleapichto.herokuapp.com/api/v1/user/signup",
 "https://clashroyaleapichto.herokuapp.com/api/v1/user/login"
