@@ -35,4 +35,10 @@ Links Prod
 
 
 
+# Swagger:
+
+In order to run the example I have to introduce Swagger editor.http://editor.swagger.io/#/ 
+
+
+
 

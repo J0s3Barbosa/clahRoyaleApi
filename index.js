@@ -8,6 +8,7 @@ const morgan = require("morgan");
 
 var clashApiRoutes = require('./api/routes/clashApiRoutes');
 const userRoutes = require('./api/routes/user');
+const { fork } = require('child_process');
 
 const PORT = process.env.PORT || 5000
 const API_PATH = '/api/v1'
@@ -30,6 +31,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(morgan('dev'));
+
+var swaggerUi = require('swagger-ui-express'),
+swaggerDocument = require('./api/swagger/swagger.json');
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -97,3 +103,4 @@ app.use(express.static(path.join(__dirname, 'public')))
     });
   });
   
+  // fork('./app.js');
