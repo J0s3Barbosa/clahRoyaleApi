@@ -20,7 +20,7 @@
     "http"
   ],
   "paths": {
-    "/clashRoyale/clashs": {
+    "/clashRoyale/clashsAllapi": {
       "get": {
         "tags": [
           "CLASH"
@@ -37,6 +37,7 @@
           "application/json"
         ],
         "parameters": [
+         
           {
             "name": "skip",
             "in": "query",
@@ -61,7 +62,7 @@
             "name": "Authorization",
             "in": "header",
             "description": "bearer TOKEN",
-            "required": false,
+            "required": true,
             "type": "string"
           }
         ],
