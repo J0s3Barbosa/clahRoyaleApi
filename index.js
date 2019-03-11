@@ -82,7 +82,7 @@ app.use(express.static(path.join(__dirname, 'public')))
   ]
   }))
 
-  .use("/user", userRoutes)
+  .use(API_PATH +"/user", userRoutes)
   .use(API_PATH + '/clashRoyale', clashApiRoutes)
 
   .listen(PORT, () => console.log(`Listening on ${PORT}`));

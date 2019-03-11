@@ -2,12 +2,13 @@ var request = require("request");
 var chai = require("chai");
 var expect = chai.expect;
 var urlBase = "http://localhost:5000";
+var urlUsersLogin = "/api/v1/user/login";
 
 describe("Teste API clashroyale", function() {
 
   it("endpoint clashs should login and retrieve data", function(done) {
     var url = urlBase + "/api/v1/clashroyale/clashsAllapi";
-    var user_login = urlBase + "/user/login";
+    var user_login = urlBase + urlUsersLogin;
     var options = {
       url: user_login,
       form: { email: "appchto@gmail.com", password: "appchto@gmail" }

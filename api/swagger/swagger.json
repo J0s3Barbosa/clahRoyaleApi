@@ -317,6 +317,44 @@
           }
         }
       }
+      ,
+        "/user/login": {
+          "post": {
+            "tags": [
+              "User"
+            ],
+            "summary": "login to get token",
+            "description": "login to get token",
+            "consumes": [
+              "application/json"
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "in": "body",
+                "name": "login",
+                "description": "login",
+                "required": false,
+                "schema": {
+                  "$ref": "#/definitions/User"
+                }
+              }
+            ],
+            "responses": {
+              "201": {
+                "description": "token created"
+              },
+              "400": {
+                "description": "invalid input, object invalid"
+              },
+              "409": {
+                "description": "an existing item already exists"
+              }
+            }
+          }
+        }
   },
   "definitions": {
     "Clash": {
@@ -351,6 +389,24 @@
         }
       }
     },
+    "User": {
+      "type": "object",
+      "required": [
+        "email",
+        "password"
+      ],
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "email"
+        },
+        "password": {
+          "type": "String",
+          "example": "password"
+        }
+      }
+    },
+
     "GeneralResponse": {
       "type": "object",
       "properties": {
