@@ -51,6 +51,14 @@
             "minimum": 0,
             "format": "int32"
           }
+          ,
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "maximum number of records to return",
+            "required": true,
+            "type": "string"
+          }
         ],
         "responses": {
           "200": {
