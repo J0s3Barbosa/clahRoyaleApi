@@ -15,6 +15,10 @@ npm start
 ### Start the server dev: 
 npm run dev 
 
+### Run tests: 
+npm test   
+
+
 ### App
 
 

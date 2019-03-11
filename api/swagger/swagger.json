@@ -25,6 +25,11 @@
         "tags": [
           "CLASH"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "summary": "Gets Clash information",
         "description": "Click Execute button to search for available data in the system\n",
         "operationId": "searchdata",
@@ -53,10 +58,10 @@
           }
           ,
           {
-            "name": "authorization",
+            "name": "Authorization",
             "in": "header",
-            "description": "maximum number of records to return",
-            "required": true,
+            "description": "bearer TOKEN",
+            "required": false,
             "type": "string"
           }
         ],
@@ -72,6 +77,9 @@
           },
           "400": {
             "description": "bad input parameter"
+          },
+          "403": {
+            "description": "You do not have necessary permissions for the resource"
           }
         }
       },
@@ -406,11 +414,11 @@
       "properties": {
         "email": {
           "type": "string",
-          "example": "email"
+          "example": "appchto@gmail.com"
         },
         "password": {
           "type": "String",
-          "example": "password"
+          "example": "appchto@gmail"
         }
       }
     },
