@@ -12,7 +12,7 @@
   "basePath": "/api/v1/",
   "tags": [
     {
-      "name": "PLANETS",
+      "name": "CLASH",
       "description": "Public calls"
     }
   ],
@@ -20,14 +20,14 @@
     "http"
   ],
   "paths": {
-    "/planet": {
+    "/clashRoyale/clashs": {
       "get": {
         "tags": [
-          "PLANETS"
+          "CLASH"
         ],
-        "summary": "Gets planets information",
-        "description": "Click Execute button to search for available planets in the system\n",
-        "operationId": "searchplanet",
+        "summary": "Gets Clash information",
+        "description": "Click Execute button to search for available data in the system\n",
+        "operationId": "searchdata",
         "produces": [
           "application/json"
         ],
@@ -58,7 +58,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Planets"
+                "$ref": "#/definitions/Clash"
               }
             }
           },
@@ -69,9 +69,9 @@
       },
       "post": {
         "tags": [
-          "PLANETS"
+          "CLASH"
         ],
-        "summary": "adds an planet info",
+        "summary": "adds an clash info",
         "description": "Adds an item to the system",
         "operationId": "addNewPlanet",
         "consumes": [
@@ -83,11 +83,11 @@
         "parameters": [
           {
             "in": "body",
-            "name": "Planets",
-            "description": "planet item to add",
+            "name": "Clash",
+            "description": "clash item to add",
             "required": false,
             "schema": {
-              "$ref": "#/definitions/Planets"
+              "$ref": "#/definitions/Clash"
             }
           }
         ],
@@ -104,13 +104,13 @@
         }
       }
     },
-    "/planet/{id}": {
+    "/clashRoyale/clash/{id}": {
       "get": {
         "tags": [
-          "PLANETS"
+          "CLASH"
         ],
-        "summary": "gets planets info by ID",
-        "description": "By passing in the appropriate options, you can search for\navailable planet in the system\n",
+        "summary": "gets Clash info by ID",
+        "description": "By passing in the appropriate options, you can search for\navailable clash in the system\n",
         "operationId": "getPlanetWithID",
         "produces": [
           "application/json"
@@ -118,7 +118,7 @@
         "parameters": [
           {
             "name": "id",
-            "description": "pass an ID for looking up planet",
+            "description": "pass an ID for looking up clash",
             "required": true,
             "type": "string",
             "in": "path"
@@ -140,7 +140,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Planets"
+                "$ref": "#/definitions/Clash"
               }
             }
           },
@@ -157,10 +157,10 @@
       },
       "put": {
         "tags": [
-          "PLANETS"
+          "CLASH"
         ],
-        "summary": "update planet",
-        "description": "update planet in the system\n",
+        "summary": "update clash",
+        "description": "update clash in the system\n",
         "operationId": "updatePlanet",
         "produces": [
           "application/json"
@@ -168,7 +168,7 @@
         "parameters": [
           {
             "name": "id",
-            "description": "pass an ID for looking up the planet",
+            "description": "pass an ID for looking up the clash",
             "type": "string",
             "in": "path",
             "required": true
@@ -176,10 +176,10 @@
           {
             "name": "Planet",
             "in": "body",
-            "description": "planet properties",
+            "description": "clash properties",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Planets"
+              "$ref": "#/definitions/Clash"
             }
           }
         ],
@@ -189,7 +189,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Planets"
+                "$ref": "#/definitions/Clash"
               }
             }
           },
@@ -206,10 +206,10 @@
       },
       "delete": {
         "tags": [
-          "PLANETS"
+          "CLASH"
         ],
-        "summary": "delete a planet by ID",
-        "description": "delete a planet in the system\n",
+        "summary": "delete a clash by ID",
+        "description": "delete a clash in the system\n",
         "operationId": "deletePlanet",
         "produces": [
           "application/json"
@@ -217,7 +217,7 @@
         "parameters": [
           {
             "name": "id",
-            "description": "delete a planet",
+            "description": "delete a clash",
             "required": true,
             "type": "string",
             "in": "path"
@@ -229,7 +229,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Planets"
+                "$ref": "#/definitions/Clash"
               }
             }
           },
@@ -245,13 +245,13 @@
         }
       }
     },
-    "/planet/{name}": {
+    "/clashRoyale/clash/{name}": {
       "get": {
         "tags": [
-          "PLANETS"
+          "CLASH"
         ],
-        "summary": "gets planets info by Name",
-        "description": "By passing in the appropriate options, you can search for\navailable planet in the system\n",
+        "summary": "gets Clash info by Name",
+        "description": "By passing in the appropriate options, you can search for\navailable clash in the system\n",
         "operationId": "getPlanetWithName",
         "produces": [
           "application/json"
@@ -259,7 +259,7 @@
         "parameters": [
           {
             "name": "name",
-            "description": "pass an name for looking up planet",
+            "description": "pass an name for looking up clash",
             "required": true,
             "type": "string",
             "in": "path"
@@ -281,7 +281,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Planets"
+                "$ref": "#/definitions/Clash"
               }
             }
           },
@@ -302,7 +302,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Planets"
+                "$ref": "#/definitions/Clash"
               }
             }
           },
@@ -319,34 +319,35 @@
       }
   },
   "definitions": {
-    "Planets": {
+    "Clash": {
       "type": "object",
       "required": [
         "Name",
-        "Climate",
-        "Terrain"
+        "Started_Trophies",
+        "Trophies",
+        "Victory"
       ],
       "properties": {
         "Name": {
           "type": "string",
           "example": "Name"
         },
-        "Climate": {
-          "type": "string",
-          "example": "Climate"
-        },
-        "Terrain": {
-          "type": "string",
-          "example": "Terrain"
-        },
-        "Film": {
-          "type": "string",
+        "Started_Trophies": {
+          "type": "Number",
           "example": 0
         },
-        "Created_date": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2018-12-28T09:12:33.001Z"
+        "Trophies": {
+          "type": "Number",
+          "example": 0
+        },
+        "Victory": {
+          "type": "Number",
+          "example": 0
+        }
+        ,
+        "Defeat": {
+          "type": "Number",
+          "example": 0
         }
       }
     },
